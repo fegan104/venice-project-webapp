@@ -1,0 +1,29 @@
+{
+  "name": "facebook-widget",
+  "description": "A facebook widget for the Venice Dashboard",
+  "main": "facebook-widget.html",
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.4.0",
+    "iron-component-page": "PolymerElements/iron-component-page#^1.1.7",
+    "iron-ajax": "PolymerElements/iron-ajax#^1.4.3",
+    "paper-card": "PolymerElements/paper-card#^1.1.4"
+  },
+  "devDependencies": {
+    "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
+    "iron-demo-helpers": "PolymerElements/iron-demo-helpers#^1.0.0",
+    "web-component-tester": "^4.0.0",
+    "webcomponentsjs": "webcomponents/webcomponentsjs#^0.7.0"
+  },
+  "homepage": "https://github.com/fegan104/facebook-widget",
+  "version": "0.0.4",
+  "_release": "0.0.4",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.0.4",
+    "commit": "a2b52215aaa787ecd127665d5fc92206c3861973"
+  },
+  "_source": "https://github.com/fegan104/facebook-widget.git",
+  "_target": "^0.0.4",
+  "_originalSource": "fegan104/facebook-widget",
+  "_direct": true
+}
