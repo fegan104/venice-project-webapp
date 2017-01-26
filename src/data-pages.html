@@ -1,0 +1,43 @@
+<link rel="import" href="../bower_components/app-route/app-route.html">
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="elements-page.html">
+<link rel="import" href="viz-page.html">
+
+<dom-module id="data-pages">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    <!-- Our two route types -->
+    <app-route
+      route="{{route}}"
+      pattern="/elements"
+      active="{{elementsActive}}">
+    </app-route>
+
+    <app-route
+      route="{{route}}"
+      pattern="/visualization/:slug"
+      active="{{vizActive}}"
+      data="{{vizData}}">
+    </app-route>
+
+    <!-- Elements -->
+    <elements-page active="{{elementsActive}}" height="100%" width="100%"></elements-page>
+    <viz-page viz-id="{{vizData.slug}}" active="{{vizActive}}" height="100%" width="100%"></viz-page>
+
+  </template>
+
+  <script>
+    Polymer({
+      is: 'data-pages',
+
+      properties: {
+        route: String,
+        page: String,
+      }
+    });
+  </script>
+</dom-module>

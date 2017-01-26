@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>Census Evolution</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <style>
+  header, main, footer {
+      padding-left: 250px;
+    }
+
+    @media only screen and (max-width : 992px) {
+      header, main, footer {
+        padding-left: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="deep-purple darken-3" role="navigation">
+      <div class="nav-wrapper"><!--<a id="logo-container" href="#" class="brand-logo">Logo</a>-->
+      <a href="#" class="brand-logo center light">Census Evolution</a>
+      <ul id="nav-mobile" class="left">
+        <li><a href="data.html">Urban Elements</a></li>
+        <li><a target="_blank" href="http://dashboard.cityknowledge.net/#/venice">Dashboard</a></li>
+        <li class="active"><a href="visualizations.html">Visualizations</a></li>
+      </ul>
+      <ul id="nav-mobile" class="right">
+        <div class="container">
+          <li><a href="#modal1"><i class="material-icons">info_outline</i></a></li>
+        </div>
+      </ul>
+
+      <!-- for reference: target="_blank" -->
+
+      <ul id="slide-out" class="side-nav fixed">
+        <li style="text-align:center">
+          <div style="height:60px"><a href="http://veniceprojectcenter.org">
+            <img src="vpc_actual_real.jpg" alt="Venice Project Center" width="200" height="60">
+          </div></a></li>
+          <li class="no-padding">
+            <ul class="collapsible collapsible-accordion">
+              <li>
+                <a class="collapsible-header" style="font-size:18px">Architecture<i class="material-icons">arrow_drop_down</i></a>
+                <div class="collapsible-body">
+                  <ul>
+                    <li><a class="waves-effect" href="viz-bell-towers.html">Bell Towers</a></li>
+                    <li><a class="waves-effect" href="viz-hidden-venice.html">Hidden Venice</a></li>
+                    
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </li>
+          <li class="no-padding">
+            <ul class="collapsible collapsible-accordion">
+              <li>
+                <a class="collapsible-header" style="font-size:18px">Art<i class="material-icons">arrow_drop_down</i></a>
+                <div class="collapsible-body">
+                  <ul>
+                    <li><a class="waves-effect" href="viz-displaced-art.html">Displaced Art</a></li>
+                    <li><a class="waves-effect" href="viz-wells.html">Wells</a></li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </li>
+          <li class="no-padding">
+            <ul class="collapsible collapsible-accordion">
+              <li>
+                <a class="collapsible-header" style="font-size:18px">Economy<i class="material-icons">arrow_drop_down</i></a>
+                <div class="collapsible-body">
+                  <ul>
+                    <li><a class="waves-effect" href="viz-shops.html">Shops</a></li>
+                    <li><a class="waves-effect" href="viz-stores.html">Stores</a></li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </li>
+          <li class="no-padding">
+            <ul class="collapsible collapsible-accordion">
+              <li>
+                <a class="collapsible-header" style="font-size:18px">Environment<i class="material-icons">arrow_drop_down</i></a>
+                <div class="collapsible-body">
+                  <ul>
+                    <li><a class="waves-effect" href="viz-canal-hydrodynamics.html">Canal Hydrodynamics</a></li>
+                    <li><a class="waves-effect" href="viz-moto-ondoso.html">Moto Ondoso</a></li>
+                    <li><a class="waves-effect" href="viz-tidal-latency.html">Tidal Latency</a></li>
+                    <li><a class="waves-effect" href="viz-tide-levels.html">Tide Levels</a></li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </li>
+          <li class="no-padding">
+            <ul class="collapsible collapsible-accordion">
+              <li>
+                <a class="collapsible-header" style="font-size:18px">History<i class="material-icons">arrow_drop_down</i></a>
+                <div class="collapsible-body">
+                  <ul>
+                    <li><a class="waves-effect" href="viz-evolution-of-venice.html">Evolution of Venice</a></li>
+                    <li><a class="waves-effect" href="viz-historical-map-explorer.html">Historical Map Explorer</a></li>
+                    <li><a class="waves-effect" href="viz-history-of-venice.html">History of Venice</a></li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </li>
+          <li class="no-padding">
+            <ul class="collapsible collapsible-accordion">
+              <li>
+                <a class="collapsible-header" style="font-size:18px">Infrastructure<i class="material-icons">arrow_drop_down</i></a>
+                <div class="collapsible-body">
+                  <ul>
+                    <li><a class="waves-effect" href="viz-bridge-clearances.html">Bridge Clearances</a></li>
+                    <li><a class="waves-effect" href="viz-canals.html">Canals</a></li>
+                    <li><a class="waves-effect" href="viz-canal-maintenance.html">Canal Maintenance</a></li>
+                    <li><a class="waves-effect" href="viz-wifi-hotspots.html">WiFi Hotspots</a></li>
+                    
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </li>
+          <li class="no-padding">
+            <ul class="collapsible collapsible-accordion">
+              <li>
+                <a class="collapsible-header" style="font-size:18px">Mobility<i class="material-icons">arrow_drop_down</i></a>
+                <div class="collapsible-body">
+                  <ul>
+                    <li><a class="waves-effect" href="viz-boat-traffic-model.html">Boat Traffic Model</a></li>
+                    <li><a class="waves-effect" href="viz-pedestrian-congestion.html">Pedestrian Congestion</a></li>
+                    <li><a class="waves-effect" href="viz-pedestrian-model.html">Pedestrian Model</a></li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </li>
+          <li class="no-padding">
+            <ul class="collapsible collapsible-accordion">
+              <li>
+                <a class="collapsible-header" style="font-size:18px">Society<i class="material-icons">arrow_drop_down</i></a>
+                <div class="collapsible-body">
+                  <ul>
+                    <li class="active"><a class="waves-effect" href="viz-census-evolution.html">Census Evolution</a></li>
+                    <li><a class="waves-effect" href="viz-islands.html">Islands</a></li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </li>        
+          
+          
+          
+      </ul>
+      <!--<ul class="right hide-on-med-and-down">
+        <li><a href="#!">First Sidebar Link</a></li>
+        <li><a href="#!">Second Sidebar Link</a></li>
+        <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Dropdown<i class="material-icons right">arrow_drop_down</i></a></li>
+        <ul id='dropdown1' class='dropdown-content'>
+          <li><a href="#!">First</a></li>
+          <li><a href="#!">Second</a></li>
+          <li><a href="#!">Third</a></li>
+          <li><a href="#!">Fourth</a></li>
+        </ul>
+      </ul>-->
+      <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
+      </div>
+    </nav>
+
+    <!-- modal (info popup) -->
+    <div id="modal1" class="modal">
+      <div class="modal-content">
+        <h4>Census Evolution</h4>
+        <h5 class="header col s12 light">Created by the Venice Project Center</h5>
+        <p>Click on the floating button in the bottom right-hand corner to <b>check it out!</b></p>
+      </div>
+    </div>
+
+    <div class="fixed-action-btn">
+      <a class="btn-floating btn-large waves-effect waves-light red" href="http://www.venipedia.org/wiki/index.php?title=Accommodations#Changing_Patterns_in_Tourist_Accommodations" target="_blank">
+        <i class="large material-icons">launch</i>
+      </a>
+    </div>
+  </header>
+  <main>
+    <div class="section no-pad-bot" id="index-banner">
+      <div class="video-container">
+        <iframe width="853" height="480" src="x.mp4" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <br><br>
+
+    </div>
+
+  </main>
+  <footer class="page-footer indigo lighten-3">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Visualizing the continuum of data in Venice</h5>
+          <p class="grey-text text-lighten-4">This site is dedicated to the numerous efforts made by the Venice Project Center, with the help of Worcester Polytechnic Institute IQP teams, in collecting and displaying data about Venice.</p>
+
+
+        </div>
+        <div class="col l3 s12">
+          <h5 class="white-text">Links</h5>
+          <ul>
+            <li><a class="white-text" target="_blank" href="http://veniceprojectcenter.org">Venice Project Center</a></li>
+            <li><a class="white-text" target="_blank" href="http://venipedia.org">Venipedia</a></li>
+          </ul>
+        </div>
+        <div class="col l3 s12">
+          <h5 class="white-text">Connect</h5>
+          <ul>
+            <li><a class="white-text" target="_blank" href="https://www.facebook.com/veniceprojectcenter.wpi/">Facebook</a></li>
+            <li><a class="white-text" target="_blank" href="https://twitter.com/wpi_vpc">Twitter</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+      Made by the <a class="orange-text text-lighten-3" href="https://sites.google.com/site/ve16bigdata/">Big Data Team</a>, 2016
+      </div>
+    </div>
+  </footer>
+
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+  <script>
+    $(document ).ready(function() {
+      // Initialize collapse button
+      // ** NOTE: BELOW CAUSES DARK SCREEN ERROR **
+      $(".button-collapse").sideNav({
+        menuWidth: 250
+      });
+      // Initialize collapsible (uncomment the line below if you use the dropdown variation)
+      $('.collapsible').collapsible();
+      $('#modal1').modal();
+    });
+    
+  </script>
+
+  </body>
+</html>

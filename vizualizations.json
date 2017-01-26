@@ -1,0 +1,64 @@
+[
+  {
+    "name":"Architecture",
+    "topics": [
+      "Bell Towers Media",
+      "Hidden Venice"
+    ]
+  },
+  {
+    "name":"Art",
+    "topics": [
+      "Displaced Art",
+      "Wells"
+    ]
+  },
+  {
+    "name":"Economy",
+    "topics": [
+      "Shops",
+      "Stores"
+    ]
+  },
+  {
+    "name":"Environment",
+    "topics": [
+      "Canal Hydrodynamics",
+      "Moto Ondoso",
+      "Tidal Latency",
+      "Tide Levels"
+    ]
+  },
+  {
+    "name":"History",
+    "topics": [
+      "Evolution of Venice",
+      "Historical Map Explorer",
+      "History of Venice"
+    ]
+  },
+  {
+    "name":"Infrastructure",
+    "topics": [
+      "Bridge Clearance",
+      "Canals",
+      "Canal Maintenance",
+      "Wifi Hotspots"
+    ]
+  },
+  {
+    "name":"Mobility",
+    "topics": [
+      "Boat Traffic Model",
+      "Pedestrian Congestion",
+      "Pedestrian Model"
+    ]
+  },
+  {
+    "name":"Society",
+    "topics": [
+      "Census Evolution",
+      "Islands"
+    ]
+  }
+]

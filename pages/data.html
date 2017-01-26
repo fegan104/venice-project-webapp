@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>Venice Big Data</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css" />
+  <style>
+  header, main, footer {
+      padding-left: 250px;
+    }
+
+    @media only screen and (max-width : 992px) {
+      header, main, footer {
+        padding-left: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="deep-purple darken-3" role="navigation">
+      <div class="nav-wrapper"><!--<a id="logo-container" href="#" class="brand-logo">Logo</a>-->
+      <a href="#" class="brand-logo center light">Venice Big Data</a>
+      <ul id="nav-mobile" class="left">
+        <li class="active"><a href="#!">Urban Elements</a></li>
+        <li><a target="_blank" href="http://dashboard.cityknowledge.net/#/venice">Dashboard</a></li>
+        <li><a href="visualizations.html">Visualizations</a></li>
+      </ul>
+      <ul id="nav-mobile" class="right">
+        <div class="container">
+          <li><a href="#modal1"><i class="material-icons">info_outline</i></a></li>
+        </div>
+      </ul>
+
+      <ul id="slide-out" class="side-nav fixed">
+        <li style="text-align:center">
+          <div style="height:60px"><a href="http://veniceprojectcenter.org">
+            <img src="vpc_actual_real.jpg" alt="Venice Project Center" width="200" height="60">
+          </div></a></li>
+          <li class="no-padding">
+            <ul class="collapsible collapsible-accordion">
+              <li>
+                <a class="collapsible-header" style="font-size:18px">Architecture<i class="material-icons">arrow_drop_down</i></a>
+                <div class="collapsible-body">
+                  <ul>
+                    <li id="belltowers" onclick="toggleLayers(event)"><a class="waves-effect" href="#!" onclick="toast(event); toggleJSON(event, 'bell')">Belltowers</a></li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </li>
+          <li class="no-padding">
+            <ul class="collapsible collapsible-accordion">
+              <li>
+                <a class="collapsible-header" style="font-size:18px">Infrastructure<i class="material-icons">arrow_drop_down</i></a>
+                <div class="collapsible-body">
+                  <ul>
+                    <li id="belltower-clocks" onclick="toggleLayers(event)"><a class="waves-effect" href="#!" onclick="toast(event); toggleJSON(event, 'bellClocks')">Belltower Clocks</a></li>
+                    <li id="minich-clocks" onclick="toggleLayers(event)"><a class="waves-effect" href="#!" onclick="toast(event); toggleJSON(event, 'minich')">Minich Clocks</a></li>
+                    <li id="public-clocks" onclick="toggleLayers(event)"><a class="waves-effect" href="#!" onclick="toast(event); toggleJSON(event, 'public')">Public Clocks</a></li>
+                    <li id="fondamente-docks" onclick="toggleLayers(event)"><a class="waves-effect" href="#!" onclick="toast(event); toggleJSON(event, 'fondamente')">Fondamente Docks</a></li>
+                    <li id="rive-docks" onclick="toggleLayers(event)"><a class="waves-effect" href="#!" onclick="toast(event); toggleJSON(event, 'rive')">Rive Docks</a></li>
+                    <li id="pontili-docks" onclick="toggleLayers(event)"><a class="waves-effect" href="#!" onclick="toast(event); toggleJSON(event, 'pontili')">Pontili Docks</a></li>
+                    <li id="fountains" onclick="toggleLayers(event)"><a class="waves-effect" href="#!" onclick="toast(event); toggleJSON(event, 'fountains')">Fountains</a></li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </li>
+          <li class="no-padding">
+            <ul class="collapsible collapsible-accordion">
+              <li>
+                <a class="collapsible-header" style="font-size:18px">Mobility<i class="material-icons">arrow_drop_down</i></a>
+                <div class="collapsible-body">
+                  <ul>
+                    <li id="traffic-counts" onclick="toggleLayers(event)"><a class="waves-effect" href="#!" onclick="toast(event); toggleJSON(event, 'traffic')">Traffic Counts</a></li>
+                    <li id="bridges" onclick="toggleLayers(event)"><a class="waves-effect" href="#!" onclick="toast(event); toggleJSON(event, 'bridges')">Bridges</a></li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </li>
+          <li class="no-padding">
+            <ul class="collapsible collapsible-accordion">
+              <li>
+                <a class="collapsible-header" style="font-size:18px">Environment<i class="material-icons">arrow_drop_down</i></a>
+                <div class="collapsible-body">
+                  <ul>
+                    <li id="canals" onclick="toggleLayers(event)"><a class="waves-effect" href="#!" onclick="toast(event); toggleJSON(event, 'canals')">Canals</a></li>
+                    <li id="rii-tera" onclick="toggleLayers(event)"><a class="waves-effect" href="#!" onclick="toast(event); toggleJSON(event, 'rii')">Rii Tera</a></li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </li>
+          <li class="no-padding">
+            <ul class="collapsible collapsible-accordion">
+              <li>
+                <a class="collapsible-header" style="font-size:18px">History<i class="material-icons">arrow_drop_down</i></a>
+                <div class="collapsible-body">
+                  <ul>
+                    <li id="demolished-churches" onclick="toggleLayers(event)"><a class="waves-effect" href="#!" onclick="toast(event); toggleJSON(event, 'demolished')">Demolished Churches</a></li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </li>
+      </ul>
+      <!--<ul class="right hide-on-med-and-down">
+        <li><a href="#!">First Sidebar Link</a></li>
+        <li><a href="#!">Second Sidebar Link</a></li>
+        <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Dropdown<i class="material-icons right">arrow_drop_down</i></a></li>
+        <ul id='dropdown1' class='dropdown-content'>
+          <li><a href="#!">First</a></li>
+          <li><a href="#!">Second</a></li>
+          <li><a href="#!">Third</a></li>
+          <li><a href="#!">Fourth</a></li>
+        </ul>
+      </ul>-->
+      <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
+      </div>
+    </nav>
+
+    <!-- modal (info popup) -->
+    <div id="modal1" class="modal">
+      <div class="modal-content">
+        <h4>Urban Elements of Venice</h4>
+        <h5 class="header col s12 light">Created by Joe Bremner, Austen Couvertier & Frank Egan (Big Data Team), 2016</h5>
+        <p>Inspired by the "Data" section on the Venice Project Center website, the Urban Elements section of the Venice Big Data website allows users to overlay  points of interest in Venice on top of one another on a digital map, based on geographical coordinates. Users can select different map elements from the menu on the left in order to see their spread around Venice. Additionally, upon clicking on a point on the map, a popup appears with information about the selected data point.</p>
+      </div>
+    </div>
+  </header>
+  <main>
+    <div style="width:100%; height:670px; border:0;" id="veniceMap"></div>
+  </main>
+    <footer class="page-footer indigo lighten-3">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Visualizing the continuum of data in Venice</h5>
+          <p class="grey-text text-lighten-4">This site is dedicated to the numerous efforts made by the Venice Project Center, with the help of Worcester Polytechnic Institute IQP teams, in collecting and displaying data about Venice.</p>
+
+
+        </div>
+        <div class="col l3 s12">
+          <h5 class="white-text">Links</h5>
+          <ul>
+            <li><a class="white-text" target="_blank" href="http://veniceprojectcenter.org">Venice Project Center</a></li>
+            <li><a class="white-text" target="_blank" href="http://venipedia.org">Venipedia</a></li>
+          </ul>
+        </div>
+        <div class="col l3 s12">
+          <h5 class="white-text">Connect</h5>
+          <ul>
+            <li><a class="white-text" target="_blank" href="https://www.facebook.com/veniceprojectcenter.wpi/">Facebook</a></li>
+            <li><a class="white-text" target="_blank" href="https://twitter.com/wpi_vpc">Twitter</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+      Made by the <a class="orange-text text-lighten-3" href="https://sites.google.com/site/ve16bigdata/">Big Data Team</a>, 2016
+      </div>
+    </div>
+  </footer>
+
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/3.6.1/firebase.js"></script>
+  <script src="https://unpkg.com/leaflet@1.0.2/dist/leaflet.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-ajax/2.1.0/leaflet.ajax.min.js"></script>
+  <script>
+
+    var mymap;
+    var geojsonLayer;
+    var bellTowerLayers = L.layerGroup();
+    var activeLayers = [];
+
+    // geoJSON: endodeURIComponent() accounts for spaces in URLs
+    var bellTowerClocksJSON = "https://cityknowledge.firebaseio.com/geojson/Bell%20Tower%20Final%202014%20MERGE.json";
+    var bellTowersJSON = 'https://cityknowledge.firebaseio.com/geojson/Bell%20Tower%20Page%20Final.json';
+    var demolishedChurchesJSON = 'https://cityknowledge.firebaseio.com/geojson/Demolished%20Churches%20merge.json';
+    var canalsJSON = 'https://cityknowledge.firebaseio.com/geojson/MERGE%20Canals.json';
+    var trafficCountsJSON = 'https://cityknowledge.firebaseio.com/geojson/MERGE%20COSES%20Station%20Locations.json';
+    var fondamenteDocksJSON = 'https://cityknowledge.firebaseio.com/geojson/MERGE%20Fondamente.json';
+    var bridgesJSON = 'https://cityknowledge.firebaseio.com/geojson/MERGE%20Ponti.json';
+    var pontiliDocksJSON = 'https://cityknowledge.firebaseio.com/geojson/MERGE%20Pontili.json';
+    var riveDocksJSON = 'https://cityknowledge.firebaseio.com/geojson/Bell%20Tower%20Final%202014%20MERGE.json';
+    var minichClocksJSON = 'https://cityknowledge.firebaseio.com/geojson/Minich%20Clocks%20ReUpload%20VPC%20Website%20Final%20MERGE.json';
+    var publicClocksJSON = 'https://cityknowledge.firebaseio.com/geojson/Public%20Clocks%20Final%202014%20MERGE.json';
+    var fountainsJSON = 'https://cityknowledge.firebaseio.com/geojson/PV%20FINAL%20MERGE%202014%20KM%20Fountains.json';
+    var riiTeraJSON = 'https://cityknowledge.firebaseio.com/geojson/Rii%20Tera%20Complete%20MERGE.json';
+
+    $( document ).ready(function() {
+      // Initialize collapse button
+      // ** NOTE: BELOW CAUSES DARK SCREEN ERROR **
+      $(".button-collapse").sideNav({
+        menuWidth: 250
+      });
+      // Initialize collapsible (uncomment the line below if you use the dropdown variation)
+      $('.collapsible').collapsible();
+      $('#modal1').modal();
+
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyC6NAfPU1NV6QJcqL4sg4VJGa9S7nVXP4Q",
+        authDomain: "web-quickstart-5505a.firebaseapp.com",
+        databaseURL: "https://cityknowledge.firebaseio.com",
+        storageBucket: "gs://firebase-cityknowledge.appspot.com",
+      };
+      firebase.initializeApp(config);
+
+      // Leaflet
+      mymap = L.map('veniceMap').setView([45.438096, 12.330628], 14);
+      L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+          attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+      }).addTo(mymap); // note: from Archaeo's code "geojson_leaflet.html"
+
+
+    });
+
+    function toggleJSON(ev, type) {
+      var currentLayer;
+      var val;
+      var color;
+      console.log(type);
+
+      // if statements typed out separately so as not to confuse local/global var names
+      if (type === "bellClocks") {
+        currentLayer = bellTowerClocksJSON;
+        val = 0;
+        color = "#FE2E2E"; // red
+      } else if (type === "bell") {
+        currentLayer = bellTowersJSON;
+        val = 1;
+        color = "#FF8000"; // orange
+      } else if (type === "demolished") {
+        currentLayer = demolishedChurchesJSON;
+        val = 2;
+        color = "#FFFF00"; // yellow
+      } else if (type === "canals") {
+        currentLayer = canalsJSON;
+        val = 3;
+        color = "#01DFD7"; // cyan
+      } else if (type === "traffic") {
+        currentLayer = trafficCountsJSON;
+        val = 4;
+        color = "#3ADF00"; // light green
+      } else if (type === "fondamente") {
+        currentLayer = fondamenteDocksJSON;
+        val = 5;
+        color = "#5882FA"; // even lighter blue
+      } else if (type === "bridges") {
+        currentLayer = bridgesJSON;
+        val = 6;
+        color = "#04B4AE"; // turquoise
+      } else if (type === "pontili") {
+        currentLayer = pontiliDocksJSON;
+        val = 7;
+        color = "#0000FF" // royal blue
+      } else if (type === "rive") {
+        currentLayer = riveDocksJSON;
+        val = 8;
+        color = "#2E64FE"; // lighter blue
+      } else if (type === "minich") {
+        currentLayer = minichClocksJSON;
+        val = 9;
+        color = "#FA5858"; // lighter red
+      } else if (type === "public") {
+        currentLayer = publicClocksJSON;
+        val = 10;
+        color = "#f78181"; // even lighter red
+      } else if (type === "fountains") {
+        currentLayer = fountainsJSON;
+        val = 11;
+        color = "#642EFE"; // indigo
+      } else if (type === "rii") {
+        currentLayer = riiTeraJSON;
+        val = 12;
+        color = "#6A0888"; // purple
+      } else return; // error
+
+      console.log(currentLayer);
+
+      if (ev.currentTarget.parentElement.className === "active") {
+        mymap.removeLayer(activeLayers[val]);
+      }
+      else {
+        geojsonLayer = L.geoJSON.ajax(currentLayer, {
+          style: {
+            "color": color
+          },
+          pointToLayer: function(feature, latlng) {
+            return new L.CircleMarker(latlng, {radius: 5, fillOpacity: 0.5});
+          },
+          onEachFeature: function(feature, layer) {
+            layer.bindPopup(feature.properties.Name);
+          }
+        });
+        activeLayers[val] = geojsonLayer;
+        geojsonLayer.addTo(mymap);
+      }
+    }
+
+    // Toggle layers on/off
+    function toggleLayers(ev) {
+      if (ev.currentTarget.className === "active") {
+        ev.currentTarget.className = ev.currentTarget.className.replace( /(?:^|\s)active(?!\S)/g , '' );
+      }
+      else ev.currentTarget.className = "active";
+    }
+
+    // Create toast toast every time a visualization is selected/de-selected
+    function toast(ev) {
+      var layerName = ev.currentTarget.text;
+      if (ev.currentTarget.parentElement.className === "active") {
+        Materialize.toast('Layer Removed: ' + layerName, 4000);
+      }
+      else Materialize.toast('Layer Added: ' + layerName, 4000);
+    }
+
+    // Bell Tower layer
+    function toggleBellLayer(ev) {
+      console.log("ok");
+      var database = firebase.database();
+      var i;
+      var currentFeature;
+      if (ev.currentTarget.parentElement.className === "active") {
+        bellTowerLayers.clearLayers();
+      } else {
+        for (i = 0; i < 96; i++) {
+          console.log(i);
+          database.ref('geojson/Bell Tower Page Final/features/' + i).once('value').then(function(snapshot) {
+            currentFeature = snapshot.val(); // not used but needed for promise to work
+            bellTowerLayers.addLayer(L.geoJSON(currentFeature));
+          });
+        }
+        bellTowerLayers.addTo(mymap);
+      }
+    }
+
+  </script>
+
+  </body>
+</html>

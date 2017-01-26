@@ -1,0 +1,124 @@
+<link rel="import" href="../bower_components/leaflet-map/leaflet-map.html">
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<dom-module id="elements-page">
+  <template>
+    <style>
+      :host {
+        display: none;
+      }
+      :host([active]){
+        display: block;
+      }
+      :host leaflet-map {
+        height:18em;
+        width:99%;
+        border: none
+      }
+      leaflet-map{
+        height: 90vh;
+      }
+    </style>
+
+    <!-- Listen to toggle a layer -->
+    <iron-signals on-iron-signal-layer="toggleLayer"></iron-signals>
+    <!-- Used for getting elment config data -->
+    <iron-ajax
+      id="elementAjax"
+      handle-as="json"
+      on-response="_success"
+      last-response="{{elementData}}">
+    </iron-ajax>
+    <!-- Used for getting geoJson from Firebase -->
+    <iron-ajax
+      id="geoJsonAjax"
+      handle-as="json"
+      on-response="_geoSuccess"
+      last-response="{{geoJsonData}}">
+    </iron-ajax>
+
+    <leaflet-map id="leaflet" latitude="45.43" longitude="12.35" zoom="14">
+    </leaflet-map>
+  </template>
+
+  <script>
+    Polymer({
+
+      is: 'elements-page',
+
+      properties: {
+        active: {
+          type: Boolean,
+          value: false,
+          reflectToAttribute: true
+        },
+        layers:{
+          type:Array,
+          value: []
+        },
+        linkToIdMap:{
+          type:Array,
+          value: []
+        }
+      },
+
+      toggleLayer: function(e, detail, sender) {
+        const id = this._computeId(detail);
+        if (id in this.layers) {
+          this.removeLayer(id);
+        } else {
+          this.addLayer(id);
+        }
+      },
+
+      removeLayer:function(id) {
+        this.$.leaflet.map.removeLayer(this.layers[id]);
+        delete this.layers[id];
+      },
+
+      addLayer: function(id) {
+        this.layers[id] = id;
+
+        //make AJAX request for geoJson
+        var elementAjax = this.$.elementAjax;
+        elementAjax.url = "/elements/" + id + ".json";
+        elementAjax.generateRequest();
+      },
+
+      _success:function(e) {
+        var url = e.detail.url;
+        const id = url.replace("/elements/", "").replace(".json", "");
+        //get the actual geoJson now that we have the link
+        var geoAjax = this.$.geoJsonAjax;
+        geoAjax.url = this.elementData.link;
+        this.linkToIdMap[this.elementData.link] = {"id":id, "color": this.elementData.color};
+        geoAjax.generateRequest();
+      },
+
+      _geoSuccess:function(e) {
+        var dict = this.linkToIdMap[e.detail.url];
+        const id = dict.id;
+        console.log(id);
+        //we need each set of points on tehir own layer
+        var linesFeatureLayer = L.geoJson(this.geoJsonData, {
+          style: {
+            "color": dict.color
+          },
+          pointToLayer: function(feature, latlng) {
+            return new L.CircleMarker(latlng, {radius: 5, fillOpacity: 0.5});
+          },
+          onEachFeature: function(feature, layer) {
+            layer.bindPopup(feature.properties.Name);
+          }
+        });
+        //now we can access/remove layers by id
+        this.layers[id] = linesFeatureLayer;
+        linesFeatureLayer.addTo(this.$.leaflet.map);
+      },
+
+      _computeId:function(name) {
+        return name.toLowerCase().split(' ').join('_');
+      }
+    });
+  </script>
+</dom-module>

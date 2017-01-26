@@ -1,0 +1,25 @@
+[
+  {
+    "name":"Europe",
+    "countries": [
+      "France",
+      "Ireland",
+      "Germany"
+    ]
+  },
+  {
+    "name":"Asia",
+    "countries": [
+      "China",
+      "South Korea",
+      "Japan"
+    ]
+  },
+  {
+    "name":"North America",
+    "countries": [
+      "Canada",
+      "United States"
+    ]
+  }
+]

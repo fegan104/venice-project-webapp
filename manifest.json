@@ -1,0 +1,7 @@
+{
+  "name": "BigDataSite",
+  "short_name": "BigDataSite",
+  "description": "A website for Venice Big Data",
+  "start_url": "/",
+  "display": "standalone"
+}

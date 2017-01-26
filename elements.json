@@ -1,0 +1,40 @@
+[
+  {
+    "name":"Architecture",
+    "topics": [
+      "Bell Towers"
+    ]
+  },
+  {
+    "name":"Infrastructure",
+    "topics": [
+      "Belltower Clocks",
+      "Minich Clocks",
+      "Public Clocks",
+      "Fondamente Docks",
+      "Rive Docks",
+      "Pontili Docks",
+      "Fountains"
+    ]
+  },
+  {
+    "name":"Mobility",
+    "topics": [
+      "Traffic Counts",
+      "Bridges"
+    ]
+  },
+  {
+    "name":"Environment",
+    "topics": [
+      "Canals",
+      "Rii Tera"
+    ]
+  },
+  {
+    "name":"History",
+    "topics": [
+      "Demolished Churches"
+    ]
+  }
+]

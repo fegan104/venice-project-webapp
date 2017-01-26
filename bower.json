@@ -1,14 +1,26 @@
 {
-  "name": "facebook-widget",
-  "description": "A facebook widget for the Venice Dashboard",
-  "main": "facebook-widget.html",
+  "name": "BigDataSite",
+  "description": "A website for Venice Big Data",
+  "main": "index.html",
   "dependencies": {
     "polymer": "Polymer/polymer#^1.4.0",
-    "iron-component-page": "PolymerElements/iron-component-page#^1.1.7",
+    "iron-pages": "PolymerElements/iron-pages#^1.0.8",
+    "app-route": "PolymerElements/app-route#^0.9.3",
+    "iron-icon": "PolymerElements/iron-icon#^1.0.12",
+    "paper-toolbar": "PolymerElements/paper-toolbar#^1.1.7",
+    "paper-icon-button": "PolymerElements/paper-icon-button#^1.1.4",
+    "paper-toggle-button": "PolymerElements/paper-toggle-button#^1.2.1",
+    "google-youtube": "GoogleWebComponents/google-youtube#^1.2.1",
+    "app-layout": "PolymerElements/app-layout#^0.10.6",
+    "paper-menu": "PolymerElements/paper-menu#^1.2.2",
+    "iron-selector": "PolymerElements/iron-selector#^1.5.2",
+    "paper-item": "PolymerElements/paper-item#^1.2.1",
+    "paper-dropdown-menu": "PolymerElements/paper-dropdown-menu#^1.4.3",
     "iron-ajax": "PolymerElements/iron-ajax#^1.4.3",
-    "paper-card": "PolymerElements/paper-card#^1.1.4",
-    "facebook-widget": "fegan104/facebook-widget#^0.0.4",
-    "twitter-widget": "fegan104/twitter-widget#^0.0.4"
+    "paper-fab": "PolymerElements/paper-fab#^1.2.1",
+    "iron-signals": "PolymerElements/iron-signals#^1.0.3",
+    "paper-dialog": "PolymerElements/paper-dialog#^1.1.0",
+    "leaflet-map": "^1.2.0"
   },
   "devDependencies": {
     "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
